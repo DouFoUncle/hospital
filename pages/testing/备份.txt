@@ -1,0 +1,174 @@
+<!-- 核酸检测页面 -->
+<template>
+	<view class="me_max">
+		<view class="me_content">
+			<u-form :model="form" ref="uForm">
+				<view class="person_select" @click="showSelect">
+					<u-form-item label="就诊人" label-position="top" :label-style="labelStyle">
+						<u-input v-model="selectDefaultLable" :type="select" @click="show = true"
+							placeholder="请选择就诊人" />
+						<u-action-sheet :list="personInfo" v-model="show" @click="actionSheetCallback"></u-action-sheet>
+					</u-form-item>
+				</view>
+				<view>
+					<u-form-item label="户籍地" label-position="top" :label-style="labelStyle">
+						<u-input v-model="areaAddress" placeholder="请选择户籍所在地" :type="select" @click="areaShow = true" />
+					</u-form-item>
+					<u-picker mode="region" v-model="areaShow" :default-region='["北京市", "市辖区", "东城区"]'
+						@confirm="pickerCallback"></u-picker>
+				</view>
+				<view>
+					<u-form-item label="居住地址" label-position="top" :label-style="labelStyle">
+						<u-input v-model="address" placeholder="请输入当前居住的详细地址" />
+					</u-form-item>
+				</view>
+				<view>
+					<u-form-item label="所在学校/单位" label-position="top" :label-style="labelStyle">
+						<u-input v-model="address" placeholder="所在学校/单位名称" />
+					</u-form-item>
+				</view>
+				<view>
+					<u-form-item label="14天内境外入境人员" label-position="top" :label-style="labelStyle">
+						<u-input v-model="outValue" placeholder="请选择出入境情况" :type="select" @click="outShow = true" />
+					</u-form-item>
+					<u-action-sheet :list="outs" v-model="outShow" @click="outActionSheetCallback"></u-action-sheet>
+				</view>
+				<view>
+					<u-form-item label="检测方式" label-position="top" :label-style="labelStyle">
+						<u-input v-model="testingValue" placeholder="请选择检测方式" :type="select"
+							@click="testingShow = true" />
+					</u-form-item>
+					<u-action-sheet :list="testings" v-model="testingShow" @click="testingActionSheetCallback">
+					</u-action-sheet>
+				</view>
+				<view>
+					<u-form-item label="预约金额" label-position="top" :label-style="labelStyle">
+						<u-input v-model="testingPrice" placeholder="选择检测方式后自动识别" disabled="true" />
+					</u-form-item>
+				</view>
+			</u-form>
+		</view>
+		<view class="button_group">
+			<u-button type="success" @click="submitOrder">立即预约</u-button>
+		</view>
+	</view>
+</template>
+
+<script>
+	export default {
+		data() {
+			return {
+				show: false,
+				areaShow: false,
+				outShow: false,
+				testingShow: false,
+				selectDefaultLable: '',
+				areaAddress: '',
+				outValue: '',
+				testingValue: '',
+				testingPrice: '',
+				personInfo: [{
+					text: '张三'
+				}, {
+					text: '李四'
+				}],
+				outs: [{
+					text: '否'
+				}, {
+					text: '是'
+				}],
+				testings: [{
+					text: '混采 - 10人一组采样',
+					showText: '混采',
+					value: 1
+				}, {
+					text: '单采 - 单人采样',
+					showText: '单采',
+					value: 2
+				}],
+				labelStyle: {
+					fontSize: '12px',
+					color: '#333'
+				}
+			}
+		},
+		methods: {
+			showSelect() {
+				this.show = true
+			},
+			// 点击actionSheet回调
+			actionSheetCallback(index) {
+				this.selectDefaultLable = this.personInfo[index].text;
+			},
+			// 点击actionSheet回调
+			outActionSheetCallback(index) {
+				this.outValue = this.outs[index].text;
+			},
+			// 点击actionSheet回调
+			testingActionSheetCallback(index) {
+				this.testingValue = this.testings[index].showText;
+				if (this.testings[index].value == 1) {
+					this.testingPrice = '¥15';
+				} else if (this.testings[index].value == 2) {
+					this.testingPrice = '¥45';
+				}
+			},
+			// 点击actionSheet回调
+			pickerCallback(params) {
+				console.log(params);
+			},
+			// 点击立即支付按钮触发的事件
+			submitOrder() {
+				uni.showLoading({
+					title: '正在支付...',
+					success: () => {
+						setTimeout(function() {
+							uni.hideLoading();
+							// 弹出支付成功
+							if (1 == 1) {
+								uni.showToast({
+									title: '支付成功',
+									success: () => {
+										// 跳转到挂号记录页面
+										// setTimeout(() => {
+										// 	uni.navigateTo({
+										// 		url: '../reserveVisit/reserveVisit'
+										// 	})
+										// }, 1500)
+									}
+								})
+							}
+						}, 1500);
+					}
+				})
+			}
+		}
+	}
+</script>
+
+<style lang="less">
+	// 定义字体颜色
+	@color: #2b85e4;
+	@rmbColor: #f29100;
+
+	uni-page-body {
+		height: 100%;
+	}
+
+	.me_max {
+		padding: 10px;
+		min-height: 100vh;
+		background-color: #ecf5ff;
+		color: #555;
+	}
+
+	.me_content {
+		background-color: #FFF;
+		padding: 0 10px;
+		border-radius: 5px;
+	}
+
+	.button_group {
+		margin-top: 15px;
+	}
+</style>
