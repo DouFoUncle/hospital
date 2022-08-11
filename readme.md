@@ -47,9 +47,9 @@
 
 ##### 用户端截图
 
-| <img src="img/web1.png" style="zoom:20%;" /> | <img src="img/web2.png" style="zoom:80%;" /> |
+| <img src="img/web1.png" style="zoom:33%;" /> | <img src="img/web2.png" style="zoom:33%;" /> |
 | -------------------------------------------- | -------------------------------------------- |
-| <img src="img/web3.png" style="zoom:80%;" /> | <img src="img/web4.png" style="zoom:80%;" /> |
+| <img src="img/web3.png" style="zoom:33%;" /> | <img src="img/web4.png" style="zoom:33%;" /> |
 
 
 
