@@ -38,22 +38,21 @@
 小程序端：uniapp + Vue
 
 
-
 #### 项目截图
 
 ##### 管理员端截图
 
-| <img src="img/admin1.png" style="zoom:33%;" /> | <img src="img/admin2.png" style="zoom:33%;" /> |
+| ![](https://s1.ax1x.com/2022/10/24/x22efS.png) | ![](https://s1.ax1x.com/2022/10/24/x22nSg.png) |
 | ---------------------------------------------- | ---------------------------------------------- |
-| <img src="img/admin3.png" style="zoom:33%;" /> | <img src="img/admin4.png" style="zoom:33%;" /> |
+| ![](https://s1.ax1x.com/2022/10/24/x22VFf.png) | ![](https://s1.ax1x.com/2022/10/24/x22ATP.png) |
 
 
 
 ##### 用户端截图
 
-| <img src="img/web1.png" style="zoom:33%;" /> | <img src="img/web2.png" style="zoom:33%;" /> |
-| -------------------------------------------- | -------------------------------------------- |
-| <img src="img/web3.png" style="zoom:33%;" /> | <img src="img/web4.png" style="zoom:33%;" /> |
+| ![](https://s1.ax1x.com/2022/10/24/x22kwt.png) | ![](https://s1.ax1x.com/2022/10/24/x22ZY8.png) |
+| ---------------------------------------------- | ---------------------------------------------- |
+| ![](https://s1.ax1x.com/2022/10/24/x22Kyj.png) | ![](https://s1.ax1x.com/2022/10/24/x22ulQ.png) |
 
 
 
